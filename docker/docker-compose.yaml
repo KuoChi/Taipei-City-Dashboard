@@ -56,6 +56,9 @@ services:
       DB_DASHBOARD_PASSWORD: ${DB_DASHBOARD_PASSWORD}
       DB_DASHBOARD_DBNAME: ${DB_DASHBOARD_DBNAME}
       DB_DASHBOARD_PORT: ${DB_DASHBOARD_PORT:-5432}
+      DASHBOARD_DEFAULT_USERNAME: ${DASHBOARD_DEFAULT_USERNAME}
+      DASHBOARD_DEFAULT_Email: ${DASHBOARD_DEFAULT_Email}
+      DASHBOARD_DEFAULT_PASSWORD: ${DASHBOARD_DEFAULT_PASSWORD}
       DB_MANAGER_HOST: ${DB_MANAGER_HOST:-postgres-manager}
       DB_MANAGER_USER: ${DB_MANAGER_USER}
       DB_MANAGER_PASSWORD: ${DB_MANAGER_PASSWORD}
@@ -71,6 +74,7 @@ services:
       LM_MODEL_PATH: ${LM_MODEL_PATH}
     volumes:
       - ../Taipei-City-Dashboard-BE:/opt/Taipei-City-Dashboard-BE
+      - ../db-sample-data:/opt/db-sample-data
     working_dir: /opt/Taipei-City-Dashboard-BE #Local Development
     # working_dir: /app #Test Prod Image
     ports:

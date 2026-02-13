@@ -169,6 +169,7 @@ func checkPostgreSQLClient() error {
 func executeSQLFile(dbConfig global.DatabaseConfig, filePath string) error {
 	cmd := exec.Command("psql", "-h", dbConfig.Host, "-p", dbConfig.Port, "-U", dbConfig.User, "-d", dbConfig.DBName, "-f", filePath)
 	// cmd.Stdin = strings.NewReader(dbConfig.Password + "\n")
+	cmd.Env = append(os.Environ(), "PGPASSWORD="+dbConfig.Password)
 
 	err := cmd.Run()
 	if err != nil {

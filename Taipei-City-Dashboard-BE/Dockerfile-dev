@@ -55,7 +55,7 @@ ARG TARGETARCH
 # 安裝必要相依
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-        ca-certificates wget libgomp1 && \
+        ca-certificates wget libgomp1 postgresql-client && \
     update-ca-certificates && \
     rm -rf /var/lib/apt/lists/*
 
